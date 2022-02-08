@@ -1,0 +1,10 @@
+<div>
+<% @foods.each do |food| %>
+  <%= render "food", food: food%>
+
+  
+<%end%>
+
+<%= link_to "Add food", new_food_path %>
+
+</div>
