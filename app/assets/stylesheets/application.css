@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.pmd-user-info > a {
+  padding: 0.5rem 0.5rem;
+  text-decoration: none;
+}
+
+.pmd-navbar.navbar-dark .pmd-user-info > a {
+  color: rgba(255, 255, 255, 0.7);
+}
