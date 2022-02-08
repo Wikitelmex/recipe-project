@@ -17,10 +17,15 @@ class FoodsController < ApplicationController
       flash[:notice] = 'Food was successfully created.'
       redirect_to foods_path
     else
-      puts food.errors.full_messages
-      flash[:notice] = food.errors.full_messages.to_sentence
+      flash[:notice] = food.errors.full_messages
       render :new
     end
+  end
+
+  def destroy
+    food = Food.find(params[:id])
+    food.destroy
+    redirect_to foods_path
   end
 
   private

@@ -1,10 +1,31 @@
-<div>
-<% @foods.each do |food| %>
+<div class="d-flex justify-content-end me-5">
+ <span><a href="/foods/new">Add a new food</a></span>
+</div>
+<% if user_signed_in? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @foods.each do |food| %>
   <%= render "food", food: food%>
 
   
 <%end%>
-
-<%= link_to "Add food", new_food_path %>
+   
+  </tbody>
+</table>
+<% end %>
+<% if !user_signed_in? %>
+<div>
+You need to sign in to add food.
+<%= link_to "Sign in", new_user_session_path %>
+<%= link_to "Sign up", new_user_registration_path %>
 
 </div>
+<% end %>

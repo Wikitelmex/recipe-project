@@ -1,2 +1,9 @@
- <%= food.name %>
-  <%= food.measurement_unit %>
+
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td><%= food.price %></td>
+      <td>
+         <%= button_to "Delete", food_path(food.id), method: :delete %>
+      </td>
+    </tr>
