@@ -1,0 +1,22 @@
+<h1 class="text-center">Recipe: <%= @recipe.name %></h1>
+<div class="m-auto col-8">
+  <h4><%= link_to "← Back", :back, class: "link-primary ms-2" %></h3>
+  <div class="d-flex flex-row justify-content-between">
+    <div><strong>Preparation time: </strong> <%= @recipe.preparation_time %> minutes</div>
+    <div class="form-check form-switch">
+      <strong>Public</strong>
+      <input class="form-check-input" type="checkbox" <%= @recipe.public ? 'checked' : '' %> disabled>
+    </div>
+  </div>
+  <div>
+    <p><strong>Cooking time: </strong><%= @recipe.cooking_time %> minutes</p>
+    <p><%= @recipe.description %></p>
+  </div>
+  <br>
+  <br>
+  <div class="d-flex flex-row justify-content-between">
+    <%= button_to "Generate shopping list", recipe_delete_path, method: :delete, class: "btn btn-warning" %>
+    <%= button_to "Add ingredient", recipe_delete_path, method: :delete, class: "btn btn-primary" %>
+  </div>
+  <hr>
+</div>

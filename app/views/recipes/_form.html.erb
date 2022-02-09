@@ -1,0 +1,17 @@
+<%= form_with model: @recipe, url: my_url do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br>
+  <%= form.label :preparation_time %>(minutes)<br>
+  <%= form.number_field :preparation_time %><br>
+  <%= form.label :cooking_time %>(minutes)<br>
+  <%= form.number_field :cooking_time %><br>
+  <%= form.label :description %><br>
+  <%= form.text_area :description %><br>
+  <div class="form-check form-switch">
+    <%= form.label :public %>
+    <%= form.check_box :public, class: "form-check-input" %><br>
+  </div>
+  <div class="mt-3">
+    <%= form.submit "Add Food" %>
+  </div>
+<% end %>
