@@ -7,7 +7,7 @@
   <%= form.label :measurement_unit %><br>
   <%= form.text_field :measurement_unit %><br>
   <%= form.label :price %><br>
-  <%= form.number_field :price %><br>
+  <%= form.number_field :price, step: 0.01 %><br>
   <div class=" mt-3">
   <%= form.submit "Add Food" %>
   </div>
