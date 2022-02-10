@@ -1,6 +1,6 @@
 <h1 class="text-center">Recipe: <%= @recipe.name %></h1>
 <div class="m-auto col-8">
-  <h4><%= link_to "← Back", recipes_path, class: "link-primary ms-2" %></h3>
+  <h4><%= link_to "← Back", recipes_path, class: "link-primary ms-2" %></h4>
   <div class="d-flex flex-row justify-content-between">
     <div><strong>Preparation time: </strong> <%= @recipe.preparation_time %> minutes</div>
     <div class="form-check form-switch">
@@ -15,7 +15,7 @@
   <br>
   <br>
   <div class="d-flex flex-row justify-content-between">
-    <%= button_to "Generate shopping list", recipe_delete_path, method: :delete, class: "btn btn-warning" %>
+    <%= button_to "Generate shopping list", recipe_ingredient_shopping_list_path, method: :get, class: "btn btn-warning" %>
     <%= button_to "Add ingredient", recipe_ingredient_new_path, method: :get, class: "btn btn-primary" %>
   </div>
   <hr>

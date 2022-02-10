@@ -3,6 +3,12 @@ class IngredientsController < ApplicationController
     @ingredients = Food.all.map { |food| [food.name, food.id] }
   end
 
+  def index
+    @recipe_ingredients = RecipeFood.includes(:food).where(recipe_id: params[:id])
+    @ingredients_count = @recipe_ingredients.count
+    @ingredients_total = @recipe_ingredients.map { |ingredient| ingredient.quantity * ingredient.food.price }.sum
+  end
+
   def create
     @recipe_food = RecipeFood.new({
       recipe_id: params[:id],
