@@ -1,6 +1,6 @@
 <h1 class="text-center">Recipe: <%= @recipe.name %></h1>
 <div class="m-auto col-8">
-  <h4><%= link_to "← Back", :back, class: "link-primary ms-2" %></h3>
+  <h4><%= link_to "← Back", recipes_path, class: "link-primary ms-2" %></h3>
   <div class="d-flex flex-row justify-content-between">
     <div><strong>Preparation time: </strong> <%= @recipe.preparation_time %> minutes</div>
     <div class="form-check form-switch">
@@ -20,13 +20,13 @@
   </div>
   <hr>
 
-  <table class="table table-striped">
+  <table class="table table-striped table-bordered table-sm" id="dtBasicExample">
     <thead>
       <tr>
-        <th scope="col">Food</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Value</th>
-        <th scope="col">Actions</th>
+        <th class="th-sm col-4">Food</th>
+        <th class="th-sm col-3">Quantity</th>
+        <th class="th-sm col-3">Value</th>
+        <th class="th-sm col-2">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -35,13 +35,18 @@
           <td><%= ingredient.food.name %></td>
           <td><%= ingredient.quantity %></td>
           <td><%= ingredient.quantity * ingredient.food.price %></td>
-          <td>
-            buttons
-
+          <td class="d-flex flex-row justify-content-between">
+            <%= button_to "Edit", recipe_ingredient_edit_path(ingredient_id: ingredient.id), method: :get, class: "btn btn-primary" %>
+            <%= button_to "Delete", recipe_ingredient_delete_path(ingredient_id: ingredient.id), method: :delete, class: "btn btn-danger" %>
           </td>
         </tr>
       <%end%>
     </tbody>
-  </table>
-
+  </table><br><br><br>
 </div>
+
+<script>
+  $(document).ready(
+    $('#dtBasicExample').DataTable()
+);
+</script>

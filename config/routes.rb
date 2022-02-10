@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   
   get '/recipes/:id/ingredient', to: 'ingredients#new', as: 'recipe_ingredient_new'
   post '/recipes/:id', to: 'ingredients#create', as: 'recipe_ingredient_create'
+  get '/recipes/:id/ingredient/:ingredient_id/edit', to: 'ingredients#edit', as: 'recipe_ingredient_edit'
+  patch '/recipes/:id/ingredient/:ingredient_id', to: 'ingredients#update', as: 'recipe_ingredient_update'
+  delete '/recipes/:id/ingredient', to: 'ingredients#destroy', as: 'recipe_ingredient_delete'
 
   root 'home#index'
   resources :foods, only: [:index, :new , :create, :destroy]

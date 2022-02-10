@@ -17,8 +17,23 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food = RecipeFood.find(params[:ingredient_id])
     @recipe_food.destroy
     redirect_to recipe_path(@recipe_food.recipe_id)
+  end
+
+  def edit
+    @ingredients = Food.all.map { |food| [food.name, food.id] }
+    @recipe_food = RecipeFood.find(params[:ingredient_id])
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:ingredient_id])
+    # binding.break
+    if @recipe_food.update(food_id: params[:recipe_food][:food_id], quantity: params[:recipe_food][:quantity].to_f)
+      redirect_to recipe_path(@recipe_food.recipe_id)
+    else
+      render :edit
+    end
   end
 end
