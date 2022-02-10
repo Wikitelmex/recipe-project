@@ -1,16 +1,19 @@
 <h1 style="text-align:center">Public Recipes</h1>
 
-<% @recipes.each do |recipe| %>
-  <div class="card shadow m-3">
-    <div class="card-body d-flex flex-row justify-content-between m-2">
-      <div>
-        <h2 class="card-title"><%= recipe.name %></h2>
-        <p class="card-subtitle">By: <%= recipe.user.name %> </p>
-      </div>
-      <div class="card-text">
-        <p>Total food items: <!--recipe.recipefood.count--></p>
-        <p>Total price: <!--recipe.recipefood.price.sum--></p>
+<div class="m-auto col-8">
+  <% @recipes.each do |recipe| %>
+    <div class="card shadow m-3">
+      <div class="card-body d-flex flex-row justify-content-between m-2">
+        <div>
+          <h2><%= link_to recipe[:name], recipe_path(id: recipe[:id]), class: "link-primary ms-2" %></h2>
+          <!-- <h2 class="card-title"><%= recipe[:name] %></h2> -->
+          <p class="card-subtitle">By: <%= recipe[:user] %> </p>
+        </div>
+        <div class="card-text">
+          <p>Total food items: <%= recipe[:ingredients_amount] %></p>
+          <p>Total price: <%= recipe[:ingredients_price] %></p>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

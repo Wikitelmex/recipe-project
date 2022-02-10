@@ -16,7 +16,9 @@
   <br>
   <div class="d-flex flex-row justify-content-between">
     <%= button_to "Generate shopping list", recipe_ingredient_shopping_list_path, method: :get, class: "btn btn-warning" %>
-    <%= button_to "Add ingredient", recipe_ingredient_new_path, method: :get, class: "btn btn-primary" %>
+    <% if current_user.id == @recipe.user.id %> 
+      <%= button_to "Add ingredient", recipe_ingredient_new_path, method: :get, class: "btn btn-primary" %>
+    <% end %>
   </div>
   <hr>
 
@@ -36,8 +38,10 @@
           <td><%= ingredient.quantity %></td>
           <td><%= ingredient.quantity * ingredient.food.price %></td>
           <td class="d-flex flex-row justify-content-between">
-            <%= button_to "Edit", recipe_ingredient_edit_path(ingredient_id: ingredient.id), method: :get, class: "btn btn-primary" %>
-            <%= button_to "Delete", recipe_ingredient_delete_path(ingredient_id: ingredient.id), method: :delete, class: "btn btn-danger" %>
+            <% if current_user.id == @recipe.user.id %>
+              <%= button_to "Edit", recipe_ingredient_edit_path(ingredient_id: ingredient.id), method: :get, class: "btn btn-primary" %>
+              <%= button_to "Delete", recipe_ingredient_delete_path(ingredient_id: ingredient.id), method: :delete, class: "btn btn-danger" %>
+            <% end %>
           </td>
         </tr>
       <%end%>

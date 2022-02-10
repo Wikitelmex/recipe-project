@@ -27,8 +27,8 @@
           </div>
       </a>
       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item">Edit Profile</a>
-          <a class="dropdown-item">Logout</a>
+        <a class="dropdown-item">Edit Profile</a>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger ms-1" %>
       </ul>
   </div>
 
