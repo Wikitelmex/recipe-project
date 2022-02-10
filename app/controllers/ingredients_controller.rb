@@ -11,10 +11,10 @@ class IngredientsController < ApplicationController
 
   def create
     @recipe_food = RecipeFood.new({
-      recipe_id: params[:id],
-      food_id: params[:recipe_food][:food_id],
-      quantity: params[:recipe_food][:quantity].to_f
-    })
+                                    recipe_id: params[:id],
+                                    food_id: params[:recipe_food][:food_id],
+                                    quantity: params[:recipe_food][:quantity].to_f
+                                  })
     if @recipe_food.save
       redirect_to recipe_path(@recipe_food.recipe_id)
     else

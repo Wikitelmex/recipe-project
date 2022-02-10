@@ -24,7 +24,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-    binding.break
     sign_out(current_user)
     redirect_to root_path
   end
