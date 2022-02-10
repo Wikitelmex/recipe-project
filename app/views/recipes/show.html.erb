@@ -16,7 +16,32 @@
   <br>
   <div class="d-flex flex-row justify-content-between">
     <%= button_to "Generate shopping list", recipe_delete_path, method: :delete, class: "btn btn-warning" %>
-    <%= button_to "Add ingredient", recipe_delete_path, method: :delete, class: "btn btn-primary" %>
+    <%= button_to "Add ingredient", recipe_ingredient_new_path, method: :get, class: "btn btn-primary" %>
   </div>
   <hr>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |ingredient| %>
+        <tr>
+          <td><%= ingredient.food.name %></td>
+          <td><%= ingredient.quantity %></td>
+          <td><%= ingredient.quantity * ingredient.food.price %></td>
+          <td>
+            buttons
+
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
 </div>

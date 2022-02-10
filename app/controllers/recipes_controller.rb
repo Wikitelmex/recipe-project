@@ -1,10 +1,10 @@
-add recipes controler index, show, destroy, new, createclass RecipesController < ApplicationController
+class RecipesController < ApplicationController
   def index
     @recipes = Recipe.where(user_id: current_user.id)
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:recipe_foods).includes(:foods).find(params[:id])
   end
 
   def destroy
