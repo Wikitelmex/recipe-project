@@ -6,14 +6,11 @@ class FoodsController < ApplicationController
     @foods = Food.all
   end
 
-  # create a new food
   def new
     @food = Food.new
   end
 
-  # create a new food
   def create
-    # Add flash message for all the errors
     user = current_user
     food = user.foods.new(food_params)
     if food.save

@@ -35,7 +35,6 @@ class IngredientsController < ApplicationController
 
   def update
     @recipe_food = RecipeFood.find(params[:ingredient_id])
-    # binding.break
     if @recipe_food.update(food_id: params[:recipe_food][:food_id], quantity: params[:recipe_food][:quantity].to_f)
       redirect_to recipe_path(@recipe_food.recipe_id)
     else
