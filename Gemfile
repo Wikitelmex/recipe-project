@@ -14,7 +14,6 @@ gem 'devise'
 
 gem 'cancancan', '~> 3.3'
 
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
