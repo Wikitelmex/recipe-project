@@ -1,4 +1,4 @@
-<%= form_with model: @recipe, url: recipe_ingredient_create do |form| %>
+<%= form_with model: @recipe, url: recipe_create_path do |form| %>
   <%= form.label :name %><br>
   <%= form.text_field :name %><br>
   <%= form.label :preparation_time %>(minutes)<br>

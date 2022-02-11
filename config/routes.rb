@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   get '/recipes', to: 'recipes#index', as: 'recipes'
-  get '/recipes/:id', to: 'recipes#show', as: 'recipe'
   get '/recipes/new', to: 'recipes#new', as: 'recipe_new'
+  get '/recipes/:id', to: 'recipes#show', as: 'recipe'
 
   
   delete '/recipes', to: 'recipes#destroy', as: 'recipe_delete'
