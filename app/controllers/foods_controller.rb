@@ -1,4 +1,7 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
   def index
     @foods = Food.all
   end
@@ -11,7 +14,7 @@ class FoodsController < ApplicationController
   # create a new food
   def create
     # Add flash message for all the errors
-    user = User.first
+    user = current_user
     food = user.foods.new(food_params)
     if food.save
       flash[:notice] = 'Food was successfully created.'
