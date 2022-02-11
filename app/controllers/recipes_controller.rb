@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+  
   def index
     @recipes = Recipe.where(user_id: current_user.id)
   end
@@ -19,23 +22,25 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.user_id = current_user.id
   end
 
   def create
-    @recipe = Recipe.new({
-                           name: params[:recipe][:name],
-                           user_id: current_user.id,
-                           description: params[:recipe][:description],
-                           preparation_time: params[:recipe][:preparation_time].to_i,
-                           cooking_time: params[:recipe][:cooking_time].to_i,
-                           public: params[:recipe][:public]
-                         })
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
+    binding.break
     if @recipe.save
       flash[:success] = 'Recipe created'
       redirect_to recipe_path(@recipe.id)
     else
-      flash[:error] = 'Could not create recipe'
-      render :new
+      flash[:error] = @recipe.errors.full_messages
+      redirect_to recipe_new_path
     end
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :user_id, :description, :preparation_time, :cooking_time, :public)
   end
 end
