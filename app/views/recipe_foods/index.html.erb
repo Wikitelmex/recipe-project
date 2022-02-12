@@ -1,0 +1,39 @@
+
+<% if user_signed_in? %>
+<h1 class="text-center">
+Shopping List
+</h1>
+<div class="d-flex justify-content-around">
+<p>
+Amount of food items to buy:
+</p>
+<p>
+Total Value of food needed:
+</p>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @foods.each do |food| %>
+  <%= render "recipe_food", food: food%>
+
+  
+<%end%>
+   
+  </tbody>
+</table>
+<% end %>
+<% if !user_signed_in? %>
+<div>
+You need to sign in to add food.
+<%= link_to "Sign in", new_user_session_path %>
+<%= link_to "Sign up", new_user_registration_path %>
+
+</div>
+<% end %>

@@ -1,24 +1,77 @@
-# README
+# Ruby on Rails Alex's Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Schema
+### Users table
 
-Things you may want to cover:
 
-* Ruby version
+## Built with
+- Ruby
+- Ruby on Rails
+- Javascript
+- Html
+- Css
 
-* System dependencies
+## Requirements
+- VSCode installed
+- Rails 7 installed
+- Ruby 3 installed
+- PostgreSQL installed
+  
+## Installation
+1 - On Github, on the main page of the RoR-blog, click the Code button and copy "Clone with HTTPS" by clicking the copy icon.
+In your terminal, enter a git clone and past the link that you copied from the repository, and press the   Enter
+(e.g. git clone https://github.com/Wikitelmex/recipe-project.git).
 
-* Configuration
+- To get a local copy up and running follow these steps.
 
-* Database creation
+2 - open your terminal and clone the project running 
 
-* Database initialization
+`git clone https://github.com/Wikitelmex/recipe-project.git`
 
-* How to run the test suite
+3 - install all the gems running
 
-* Services (job queues, cache servers, search engines, etc.)
+`bundle install`
 
-* Deployment instructions
+4 - create the databases
 
-* ...
+`rails db:create`
+
+4 - to run the project use
+
+`rails s`
+
+## Authors
+
+👤 **Alex Castillo**
+- GitHub: [Alex](https://github.com/Wikitelmex)
+- Twitter: [@Alex](https://twitter.com/Alejand84515448)
+- LinkedIn: [Alex Castillo](https://www.linkedin.com/in/alejandro-castillo-6849131a9/)
+
+👤 **Ajayi Peter**
+- GitHub: [Peter](https://github.com/peterdgreat)
+- Twitter: [@Peter](https://twitter.com/Alejand84515448)
+- LinkedIn: [Ajayi Peter](https://www.linkedin.com/in/alejandro-castillo-6849131a9/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+
+## 📝 License
+
+This project is MIT licensed.
+
+
+* Ruby version 3.0.0
+
+* Configuration file: config/application.rb
+
+* Database creation script: config/database.yml
+
+* Database initialization: db/schema.rb

@@ -1,0 +1,16 @@
+<h1 style="text-align:center">Recipes of <%= current_user.name.split(' ').map(&:capitalize).join(' ') %></h1>
+<h4><%= link_to "+ Recipe", recipe_new_path, class: "link-primary ms-2" %></h3>
+<% @recipes.each do |recipe| %>
+  <div class="card shadow m-3">
+    <div class="card-body d-flex flex-row justify-content-between m-2">
+      <div>
+        <h2><%= link_to recipe.name, recipe_path(id: recipe.id), class: "link-primary ms-2" %></h2>
+        <%= button_to "REMOVE", recipe_delete_path(id: recipe.id), method: :delete, class: "btn btn-danger" %>
+      </div>
+      <div class="card-text col-7">
+        <p><strong>Description for the recipe: </strong></p>
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
