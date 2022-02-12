@@ -1,8 +1,7 @@
-# Ruby on Rails Alex's Blog
+# Ruby on Rails Grannys Recipe Team project
 
-## Schema
-### Users table
-
+## Live Demo
+[See Deployed Project](https://peaceful-falls-56670.herokuapp.com/)
 
 ## Built with
 - Ruby
